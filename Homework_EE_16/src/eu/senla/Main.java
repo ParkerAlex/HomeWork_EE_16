@@ -27,7 +27,7 @@ public class Main {
 		 
 		List<Product> productList = new ArrayList<>();
 		
-		File file = new File("C:/КУРСЫ/ECLIPSE/javadev/ws/Homework_EE_16/src/eu/senla/files/product");
+		File file = new File("C:/Users/PARKER/git/HomeWork_EE_16/Homework_EE_16/src/eu/senla/files/product");
 		try {
 		 		
 				Scanner scan = new Scanner(file);
@@ -49,10 +49,10 @@ public class Main {
 	 		 
 			while(true) {
 				Scanner sc = new Scanner(System.in);
-				System.out.println("Выберете:");
-				System.out.println("1 - работа с товарами");
-				System.out.println("2 - работа с заказами"); 
-				System.out.println("3 - ВЫХОД");
+				System.out.println("Р’С‹Р±РµСЂРµС‚Рµ:");
+				System.out.println("1 - СЂР°Р±РѕС‚Р° СЃ С‚РѕРІР°СЂР°РјРё");
+				System.out.println("2 - СЂР°Р±РѕС‚Р° СЃ Р·Р°РєР°Р·Р°РјРё"); 
+				System.out.println("3 - Р’Р«РҐРћР”");
 				
 				String number_1 = sc.next();
 	
@@ -67,16 +67,16 @@ public class Main {
 					  while(true) {
 						  
 						  
-						  System.out.println("Напишите что делать  с товарами:");
-						  System.out.println("1 -  Просмотреть все товары");
-						  System.out.println("2 -  Добавить товары");
-						  System.out.println("3 -  Удалить товары");
-						  System.out.println("4 -  ВЫХОД");
+						  System.out.println("РќР°РїРёС€РёС‚Рµ С‡С‚Рѕ РґРµР»Р°С‚СЊ  СЃ С‚РѕРІР°СЂР°РјРё:");
+						  System.out.println("1 -  РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ С‚РѕРІР°СЂС‹");
+						  System.out.println("2 -  Р”РѕР±Р°РІРёС‚СЊ С‚РѕРІР°СЂС‹");
+						  System.out.println("3 -  РЈРґР°Р»РёС‚СЊ С‚РѕРІР°СЂС‹");
+						  System.out.println("4 -  Р’Р«РҐРћР”");
 						  
 						  String number_2 = sc.next();
 						  
-							  if((!"1".equals(number_2)) && (!"2".equals(number_2)) && (!"4".equals(number_2))) {	//если неверное число			     
-								  System.out.println("ВВедено неверное число, повторите:");
+							  if((!"1".equals(number_2)) && (!"2".equals(number_2)) && (!"4".equals(number_2))) {	//РµСЃР»Рё РЅРµРІРµСЂРЅРѕРµ С‡РёСЃР»Рѕ			     
+								  System.out.println("Р’Р’РµРґРµРЅРѕ РЅРµРІРµСЂРЅРѕРµ С‡РёСЃР»Рѕ, РїРѕРІС‚РѕСЂРёС‚Рµ:");
 								  System.out.println();
 							    }
 						  
@@ -85,18 +85,16 @@ public class Main {
 						    	System.out.println();
 					           }
 						    
-						    if ("2".equals(number_2)) {                                //ВВОДИМ НОВЫЙ ТОВАР
-						    	System.out.println("ВВЕДИТЕ ТОВАР:");
+						    if ("2".equals(number_2)) {                                //Р’Р’РћР”РРњ РќРћР’Р«Р™ РўРћР’РђР 
+						    	System.out.println("Р’Р’Р•Р”РРўР• РўРћР’РђР :");
 						    	System.out.println();
 						    	 String number_3 = sc.next();  
 						    	try(FileOutputStream out = new FileOutputStream(file, true)) {
 						    		
-
+						    	//	product = new Product(Integer.parseInt(s[0])
 						    		 int size = productList.size() + 1;
 							    	  out.write(("\r\n" + size + "-" + number_3 + "-" + date.toString()).getBytes());
-									  
-							    	 
-							    	  
+			    	  
 								} catch (Exception e) {
 									e.printStackTrace();
 								    }
@@ -117,8 +115,7 @@ public class Main {
 	    
 		}
 	
-	
-	
+
 	    private static LocalDate getDate(String date) {
 	    	String[] split = date.split("/");
 	    	return LocalDate.of(Integer.parseInt(split[2]), Integer.parseInt(split[1]), Integer.parseInt(split[0]));	    	 
