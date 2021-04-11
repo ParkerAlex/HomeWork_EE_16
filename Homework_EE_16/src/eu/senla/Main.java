@@ -20,11 +20,8 @@ import eu.senla.product.Product;
 
 public class Main {
 	public static void main(String[] args) {
-
-		String date = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
-		 
-		System.out.println(date);
-		 
+        int id = 0;
+		String date = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
 		List<Product> productList = new ArrayList<>();
 		
 		File file = new File("C:/Users/PARKER/git/HomeWork_EE_16/Homework_EE_16/src/eu/senla/files/product");
@@ -35,7 +32,7 @@ public class Main {
 					  String line = scan.nextLine();  
 					  String[] s = line.split("-");
 					  Product product = new Product(Integer.parseInt(s[0]), s[1], getDate(s[2]));
-					  
+					  id =Integer.parseInt(s[0]);
 					  productList.add(product);
  
 				  }
@@ -90,10 +87,8 @@ public class Main {
 						    	System.out.println();
 						    	 String number_3 = sc.next();  
 						    	try(FileOutputStream out = new FileOutputStream(file, true)) {
-						    		
-						    	//	product = new Product(Integer.parseInt(s[0])
-						    		 int size = productList.size() + 1;
-							    	  out.write(("\r\n" + size + "-" + number_3 + "-" + date.toString()).getBytes());
+						    		id=id+1;
+							    	  out.write(("\r\n" + id + "-" + number_3 + "-" + date.toString()).getBytes());
 			    	  
 								} catch (Exception e) {
 									e.printStackTrace();
