@@ -25,6 +25,8 @@ public class Main {
 		List<Product> productList = new ArrayList<>();
 		
 		File file = new File("C:/Users/PARKER/git/HomeWork_EE_16/Homework_EE_16/src/eu/senla/files/product");
+		File fileNew = new File("C:/Users/PARKER/git/HomeWork_EE_16/Homework_EE_16/src/eu/senla/files/product_new");
+		
 		try {
 		 		
 				Scanner scan = new Scanner(file);
@@ -32,7 +34,7 @@ public class Main {
 					  String line = scan.nextLine();  
 					  String[] s = line.split("-");
 					  Product product = new Product(Integer.parseInt(s[0]), s[1], getDate(s[2]));
-					  id =Integer.parseInt(s[0]);
+					  id = Integer.parseInt(s[0]);
 					  productList.add(product);
  
 				  }
@@ -72,7 +74,7 @@ public class Main {
 						  
 						  String number_2 = sc.next();
 						  
-							  if((!"1".equals(number_2)) && (!"2".equals(number_2)) && (!"4".equals(number_2))) {	//если неверное число			     
+							  if((!"1".equals(number_2)) && (!"2".equals(number_2)) && (!"3".equals(number_2)) && (!"4".equals(number_2))) {	//если неверное число			     
 								  System.out.println("ВВедено неверное число, повторите:");
 								  System.out.println();
 							    }
@@ -81,19 +83,30 @@ public class Main {
 						    	System.out.println(productList);
 						    	System.out.println();
 					           }
-						    
-						    if ("2".equals(number_2)) {                                //ВВОДИМ НОВЫЙ ТОВАР
+						    //////////////////////////////////////////////////////ВВОДИМ НОВЫЙ ТОВАР
+						    if ("2".equals(number_2)) {                               
 						    	System.out.println("ВВЕДИТЕ ТОВАР:");
 						    	System.out.println();
 						    	 String number_3 = sc.next();  
 						    	try(FileOutputStream out = new FileOutputStream(file, true)) {
-						    		id=id+1;
+						    		id = id+1;
 							    	  out.write(("\r\n" + id + "-" + number_3 + "-" + date.toString()).getBytes());
-			    	  
 								} catch (Exception e) {
 									e.printStackTrace();
 								    }
 					           }
+			//////////////////////////////////////////////////////////////////////////////УДАЛИТЬ ТОВАР			    
+//						    if ("3".equals(number_2)) {                                
+//						    	System.out.println("УДАЛИТЕ ТОВАР:");
+//						    	System.out.println();
+//						    	 String number_3 = sc.next();  
+//						    	try(FileOutputStream out = new FileOutputStream(file, true)) {
+//						    		 
+//							    	  out.write(("\r\n" + id + "-" + number_3 + "-" + date.toString()).getBytes());
+//								} catch (Exception e) {
+//									e.printStackTrace();
+//								    }
+//					           }
 						    
 						    if ("4".equals(number_2)) {
 						    	break;
